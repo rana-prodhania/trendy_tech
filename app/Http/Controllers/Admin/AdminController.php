@@ -16,6 +16,7 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
+        // return view('admin.dashboard');
         return view('admin.dashboard');
     }
     public function store(Request $request)
