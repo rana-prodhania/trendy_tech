@@ -2,7 +2,7 @@
   <div class="app-brand demo">
     <a href="index.html" class="app-brand-link">
 
-      <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+      <span class="app-brand-text demo menu-text fw-bolder ms-2">Trendy Tech</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -15,7 +15,7 @@
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
     <li class="menu-item active">
-      <a href="{{ route('dashboard') }}" class="menu-link">
+      <a href="{{ route('admin.dashboard') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>

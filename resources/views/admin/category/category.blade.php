@@ -3,9 +3,9 @@
 @section('content')
   <div class="container-xxl flex-grow-1 container-p-y">
 
-    {{-- <h4 class="fw-bold mb-4 py-3"><span class="text-muted fw-light">Page/</span>All Category</h4> --}}
+
     <div class="d-flex align-items-center justify-content-between mb-4 py-3">
-      <h4 class="fw-bold"><span class="text-muted fw-light">Page/</span>All Category</h4>
+      <h4 class="fw-bold"><span class="text-muted fw-light">Page / </span> Category</h4>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Add
         Category</button>
     </div>
@@ -74,7 +74,8 @@
               <div class="row">
                 <div class="col mb-3">
                   <label for="nameBasic" class="form-label">Category Name</label>
-                  <input type="text" name="category_name" id="nameBasic" class="form-control" placeholder="Electronic">
+                  <input type="text" name="category_name" id="nameBasic" class="form-control"
+                    value="{{ old('category_name') }}" placeholder="Electronic">
                 </div>
               </div>
             </div>
