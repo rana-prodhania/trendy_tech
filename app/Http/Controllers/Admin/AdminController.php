@@ -10,7 +10,7 @@ use App\Http\Requests\Auth\LoginRequest;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function showLoginForm()
     {
         return view('admin.auth.login');
     }
@@ -22,10 +22,9 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         // Admin Login
-        $email = $request->email;
-        $password = $request->password;
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('admin.dashboard');
         }
         return redirect()->back();

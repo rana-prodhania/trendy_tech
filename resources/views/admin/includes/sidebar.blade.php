@@ -27,17 +27,12 @@
     </li>
 
     <li class="menu-item">
-      <a href="" class="menu-link">
+      <a href="{{ route('admin.category.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Add Category</div>
+        <div data-i18n="Analytics">Category</div>
       </a>
     </li>
-    <li class="menu-item">
-      <a href="" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">All Category</div>
-      </a>
-    </li>
+
     {{-- <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Sub Category</span>
     </li>

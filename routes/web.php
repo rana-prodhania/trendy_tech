@@ -41,8 +41,8 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/login',  'index')->name('login');
-    Route::post('/login/store', 'store')->name('login.store');
+    Route::get('/login',  'showLoginForm')->name('login');
+    Route::post('/login', 'store')->name('login.store');
 });
 
 Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -50,7 +50,11 @@ Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function ()
         Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/logout', 'logout')->name('logout');
     });
-    Route::controller(CategoryController::class)->group(function () {
-        Route::get('/category', 'index')->name('category.index');
+    // Category Routes
+    Route::controller(CategoryController::class)->prefix('category')->name('category.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'delete')->name('delete');
     });
 });
