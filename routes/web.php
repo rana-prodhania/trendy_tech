@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,8 +55,17 @@ Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function ()
     // Category Routes
     Route::controller(CategoryController::class)->prefix('category')->name('category.')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::post('/', 'store')->name('store');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/update/{id}', 'update')->name('update');
-        Route::get('/delete/{id}', 'delete')->name('delete');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
     });
+    // //Sub Category Routes
+    // Route::controller(SubCategoryController::class)->prefix('subcategory')->name('subcategory.')->group(function () {
+    //     Route::get('/', 'index')->name('index');
+    //     Route::post('/', 'store')->name('store');
+    //     Route::put('/{id}', 'update')->name('update');
+    //     Route::get('/delete/{id}', 'delete')->name('delete');
+    // });
 });

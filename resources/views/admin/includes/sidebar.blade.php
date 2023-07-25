@@ -5,7 +5,7 @@
       <span class="app-brand-text demo menu-text fw-bolder ms-2">Trendy Tech</span>
     </a>
 
-    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large d-block d-xl-none ms-auto">
       <i class="bx bx-chevron-left bx-sm align-middle"></i>
     </a>
   </div>
@@ -23,15 +23,40 @@
 
 
     <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">Category</span>
+      <span class="menu-header-text">Category Section</span>
     </li>
 
     <li class="menu-item">
       <a href="{{ route('admin.category.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Category</div>
+        <div data-i18n="Category">Category</div>
       </a>
     </li>
+    {{-- <li class="menu-item">
+      <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="SubCategory">Sub Category</div>
+      </a>
+    </li> --}}
+
+    {{-- <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Categroy">Category</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="{{ route('admin.category.index') }}" class="menu-link">
+            <div data-i18n="Category">Category</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
+            <div data-i18n="Sub Category">Sub Category</div>
+          </a>
+        </li>
+      </ul>
+    </li> --}}
 
     {{-- <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Sub Category</span>
