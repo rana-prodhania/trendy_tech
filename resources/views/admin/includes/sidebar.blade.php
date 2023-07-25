@@ -32,6 +32,12 @@
         <div data-i18n="Category">Category</div>
       </a>
     </li>
+    <li class="menu-item">
+      <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Sub Category">Sub Category</div>
+      </a>
+    </li>
     {{-- <li class="menu-item">
       <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>

@@ -17,15 +17,21 @@ class SubCategoryController extends Controller
     {
         $subcategories = DB::table('sub_categories')->leftJoin('categories', 'sub_categories.category_id', '=', 'categories.id')->select('sub_categories.*', 'categories.category_name')->get();
         $categories = Category::all();
-        return view('admin.category.subcategory', compact('subcategories', 'categories'));
+        return view('admin.subcategory.index', compact('subcategories', 'categories'));
+    }
+
+    // create sub category
+    public function create(){
+        $categories = Category::all();
+        return view('admin.subcategory.create', compact('categories'));
     }
 
     // store sub category
     public function store(Request $request){
         
         $request->validate([
-            'subcategory_name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id', // Make sure the selected category_id exists in the 'categories' table
+            'subcategory_name' => 'required|unique:sub_categories',
+            'category_id' => 'required|exists:categories,id',
         ]);
         
         $subcategory_name = $request->subcategory_name;
@@ -36,24 +42,35 @@ class SubCategoryController extends Controller
             'subcategory_slug' => Str::slug($subcategory_name),
         ]);
     
-        return redirect()->back()->with('success', 'Sub Category created successfully');
+        return redirect(route('admin.subcategory.index'))->with('success', 'Sub Category created successfully');
         
     }
-    // update or edit sub category
-    public function update($id){
+    // edit sub category
+    public function edit($id){
+        $subcategory = SubCategory::findORFail($id);
+        $categories = Category::all();
+        return view('admin.subcategory.edit', compact('subcategory', 'categories'));
+    }
+
+
+    // update sub category
+    public function update( Request $request, $id){
         $request->validate([
-            'subcategory_name' => 'unique:sub_categories',
+            'subcategory_name' => 'required',
         ]);
         $subcategory_name = $request->subcategory_name;
+        $category_id = $request->category_id;
         SubCategory::findORFail($id)->update([
+            'category_id' => $category_id,
             'subcategory_name' => $subcategory_name,
             'subcategory_slug' => Str::slug($subcategory_name),
 
         ]);
+        return redirect(route('admin.subcategory.index'))->with('success', 'Sub Category updated successfully');
     }
     // delete sub category
-    public function delete($id){
+    public function destroy($id){
         SubCategory::findORFail($id)->delete();
-        return redirect()->back()->with('success', 'Sub Category deleted successfully');
+        return redirect(route('admin.subcategory.index'))->with('success', 'Sub Category deleted successfully');
     }
 }

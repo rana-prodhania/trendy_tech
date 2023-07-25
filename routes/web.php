@@ -61,11 +61,13 @@ Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function ()
         Route::put('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'destroy')->name('delete');
     });
-    // //Sub Category Routes
-    // Route::controller(SubCategoryController::class)->prefix('subcategory')->name('subcategory.')->group(function () {
-    //     Route::get('/', 'index')->name('index');
-    //     Route::post('/', 'store')->name('store');
-    //     Route::put('/{id}', 'update')->name('update');
-    //     Route::get('/delete/{id}', 'delete')->name('delete');
-    // });
+    //Sub Category Routes
+    Route::controller(SubCategoryController::class)->prefix('subcategory')->name('subcategory.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+    });
 });
