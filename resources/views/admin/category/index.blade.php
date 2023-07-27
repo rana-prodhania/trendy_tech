@@ -1,5 +1,5 @@
 @extends('admin.layouts.template')
-@section('page-title', 'All Category | Global Village Bazaar')
+@section('page-title', 'All Category | Trendy Tech')
 @section('content')
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="d-flex align-items-center justify-content-between mb-4 py-3">
@@ -7,36 +7,31 @@
       <a href="{{ route('admin.category.create') }}"><button type="button" class="btn btn-primary">Add
           Category</button></a>
     </div>
-    <div class="card">
-      <h5 class="card-header">Available Category Infomation</h5>
-      <div class="table-responsive text-nowrap">
-
-        <table class="table">
-          <thead class="table-light">
+    <div class="card-datatable card table-responsive p-3">
+      <table id="example" class="table" style="width:100%">
+        <thead>
+          <tr>
+            <th>SL</th>
+            <th>Category Name</th>
+            <th>Slug</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($categories as $SL => $category)
             <tr>
-              <th>SL</th>
-              <th>Category Name</th>
-              <th>Slug</th>
-              <th>Actions</th>
+              <td>{{ $SL + 1 }}</td>
+              <td>{{ $category->category_name }}</td>
+              <td>{{ $category->category_slug }}</td>
+              <td class="text-center">
+                <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('admin.category.delete', $category->id) }}" class="btn btn-danger delete"
+                  data-id="{{ $category->id }}" data-item-type="category">Delete</a>
+              </td>
             </tr>
-          </thead>
-          <tbody class="table-border-bottom-0">
-            @foreach ($categories as $SL => $category)
-              <tr>
-                <td>{{ $SL + 1 }}</td>
-                <td>{{ $category->category_name }}</td>
-                <td>{{ $category->category_slug }}</td>
-                <td>
-                  <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
-                  <a href="{{ route('admin.category.delete', $category->id) }}" class="btn btn-danger delete"
-                    data-id="{{ $category->id }}" data-item-type="category">Delete</a>
-                </td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+          @endforeach
+        </tbody>
+      </table>
     </div>
   </div>
-
 @endsection

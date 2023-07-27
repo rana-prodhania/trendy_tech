@@ -1,5 +1,5 @@
 @extends('admin.layouts.template')
-@section('page-title', 'Edit Category | Global Village Bazaar')
+@section('page-title', 'Edit Category | Trendy Tech')
 @section('content')
   <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold mb-4 py-3"><span class="text-muted fw-light">Page/</span>Edit Category</h4>

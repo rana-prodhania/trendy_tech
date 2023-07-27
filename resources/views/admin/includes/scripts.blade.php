@@ -5,19 +5,18 @@
 <script src=" {{ asset('backend/assets/vendor/js/bootstrap.js') }}"></script>
 <script src=" {{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="{{ asset('backend/assets/vendor/libs/toastr/toastr.min.js') }}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+<script src="{{ asset('backend/assets/vendor/libs/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
 
-
-<script src=" {{ asset('backend/assets/vendor/js/menu.j') }}s"></script>
+<script src=" {{ asset('backend/assets/vendor/js/menu.js') }}"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
 <script src=" {{ asset('backend/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-
+<script src="{{ asset('backend/assets/vendor/libs/datatables/datatables.min.js') }}"></script>
 
 
 <!-- Main JS -->
@@ -26,9 +25,6 @@
 <!-- Page JS -->
 <script src=" {{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
 
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script>
   const toastrOptions = {
@@ -66,4 +62,6 @@
     })
   })
 </script>
-@yield('script')
+<script>
+  new DataTable('#example');
+</script>

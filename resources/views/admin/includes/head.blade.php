@@ -20,6 +20,7 @@
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href=" {{ asset('backend/assets/vendor/fonts/boxicons.css') }}" />
 
+
   <!-- Core CSS -->
   <link rel="stylesheet" href=" {{ asset('backend/assets/vendor/css/core.css') }}"
     class="template-customizer-core-css" />
@@ -32,11 +33,12 @@
 
   <link rel="stylesheet" href=" {{ asset('backend/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/toastr/toastr.min.css') }}">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/sweetalert2/sweetalert2.min.css') }}">
 
-  <!-- Page CSS -->
+  <!-- DataTables CSS -->
+  <link href="{{ asset('backend/assets/vendor/libs/datatables/datatables.min.css') }}" rel="stylesheet">
 
   <!-- Helpers -->
   <script src=" {{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
