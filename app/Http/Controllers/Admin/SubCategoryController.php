@@ -13,11 +13,11 @@ use Illuminate\Support\Str;
 class SubCategoryController extends Controller
 {
     // show sub category
-    public function index()
+    public function index( Request $request)
+
     {
-        $subcategories = DB::table('sub_categories')->leftJoin('categories', 'sub_categories.category_id', '=', 'categories.id')->select('sub_categories.*', 'categories.category_name')->get();
-        $categories = Category::all();
-        return view('admin.subcategory.index', compact('subcategories', 'categories'));
+        $subcategories = DB::table('sub_categories') ->leftJoin('categories', 'categories.id', 'sub_categories.category_id')->select('sub_categories.*', 'categories.category_name')->get();
+        return view('admin.subcategory.index', compact('subcategories'));
     }
 
     // create sub category

@@ -38,85 +38,17 @@
         <div data-i18n="Sub Category">Sub Category</div>
       </a>
     </li>
-    {{-- <li class="menu-item">
-      <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="SubCategory">Sub Category</div>
-      </a>
-    </li> --}}
-
-    {{-- <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Categroy">Category</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="{{ route('admin.category.index') }}" class="menu-link">
-            <div data-i18n="Category">Category</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="{{ route('admin.subcategory.index') }}" class="menu-link">
-            <div data-i18n="Sub Category">Sub Category</div>
-          </a>
-        </li>
-      </ul>
-    </li> --}}
-
-    {{-- <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">Sub Category</span>
-    </li>
-
     <li class="menu-item">
-      <a href="" class="menu-link">
+      <a href="{{ route('admin.childCategory.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Add Sub Category</div>
+        <div data-i18n="Child Category">Child Category</div>
       </a>
     </li>
     <li class="menu-item">
-      <a href="" class="menu-link">
+      <a href="{{ route('admin.brand.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">All Sub Category</div>
+        <div data-i18n="Brand">Brand</div>
       </a>
     </li>
-    <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">Product</span>
-    </li>
-
-    <li class="menu-item">
-      <a href="" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Add Product</div>
-      </a>
-    </li>
-    <li class="menu-item">
-      <a href="{{ route('allProduct') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">All Product</div>
-      </a>
-    </li>
-    <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">Order</span>
-    </li>
-
-    <li class="menu-item">
-      <a href="{{ route('pendingOrder') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Pending Order</div>
-      </a>
-    </li>
-    <li class="menu-item">
-      <a href="{{ route('completedOrder') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Completed Order</div>
-      </a>
-    </li>
-    <li class="menu-item">
-      <a href="{{ route('canceledOrder') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-        <div data-i18n="Analytics">Canceled Order</div>
-      </a>
-    </li> --}}
   </ul>
 </aside>

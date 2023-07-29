@@ -1,23 +1,14 @@
 <!-- Core JS -->
-<!-- build:js assets/vendor/js/core.js -->
 <script src=" {{ asset('backend/assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src=" {{ asset('backend/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src=" {{ asset('backend/assets/vendor/js/bootstrap.js') }}"></script>
 <script src=" {{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
 <script src="{{ asset('backend/assets/vendor/libs/toastr/toastr.min.js') }}"></script>
-
 <script src="{{ asset('backend/assets/vendor/libs/sweetalert2/sweetalert2.all.min.js') }}"></script>
-
-
 <script src=" {{ asset('backend/assets/vendor/js/menu.js') }}"></script>
-<!-- endbuild -->
-
 <!-- Vendors JS -->
 <script src=" {{ asset('backend/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-
 <script src="{{ asset('backend/assets/vendor/libs/datatables/datatables.min.js') }}"></script>
-
 
 <!-- Main JS -->
 <script src=" {{ asset('backend/assets/js/main.js') }}"></script>
@@ -25,7 +16,7 @@
 <!-- Page JS -->
 <script src=" {{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
 
-
+{{-- Custom JS --}}
 <script>
   const toastrOptions = {
     closeButton: true,
@@ -46,7 +37,6 @@
     e.preventDefault();
     const id = $(this).data('id');
     const itemType = $(this).data('item-type');
-    // var deleteUrl = "{{ url('') }}/" + itemType + "/delete/" + id;
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -62,6 +52,4 @@
     })
   })
 </script>
-<script>
-  new DataTable('#example');
-</script>
+@yield('scripts')

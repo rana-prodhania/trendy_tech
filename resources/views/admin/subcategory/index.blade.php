@@ -7,41 +7,41 @@
       <a href="{{ route('admin.subcategory.create') }}"><button type="button" class="btn btn-primary">Add Sub
           Category</button></a>
     </div>
-    <div class="card">
-      <h5 class="card-header">Available Sub Category Infomation</h5>
-      <div class="table-responsive text-nowrap">
+    <div class="card-datatable card table-responsive p-3">
+      <table id="myTable" class="table">
+        <thead>
 
-        <table class="table">
-          <thead class="table-light">
+          <tr>
+            <th>SL</th>
+            <th>Sub Category Name</th>
+            <th>Slug</th>
+            <th>Category</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
 
+        <tbody class="table-border-bottom-0">
+          @foreach ($subcategories as $SL => $subcategory)
             <tr>
-              <th>SL</th>
-              <th>Sub Category Name</th>
-              <th>Slug</th>
-              <th>Category</th>
-              <th>Actions</th>
+              <td>{{ $SL + 1 }}</td>
+              <td>{{ $subcategory->subcategory_name }}</td>
+              <td>{{ $subcategory->subcategory_slug }}</td>
+              <td>{{ $subcategory->category_name }}</td>
+
+              <td class="text-center">
+                <a href="{{ route('admin.subcategory.edit', $subcategory->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{{ route('admin.subcategory.delete', $subcategory->id) }}" class="btn btn-danger delete btn-sm"
+                  data-id="{{ $subcategory->id }}" data-item-type="subcategory">Delete</a>
+              </td>
             </tr>
-          </thead>
-
-          <tbody class="table-border-bottom-0">
-            @foreach ($subcategories as $SL => $subcategory)
-              <tr>
-                <td>{{ $SL + 1 }}</td>
-                <td>{{ $subcategory->subcategory_name }}</td>
-                <td>{{ $subcategory->subcategory_slug }}</td>
-                <td>{{ $subcategory->category_name }}</td>
-
-                <td>
-                  <a href="{{ route('admin.subcategory.edit', $subcategory->id) }}" class="btn btn-primary">Edit</a>
-                  <a href="{{ route('admin.subcategory.delete', $subcategory->id) }}" class="btn btn-danger delete"
-                    data-id="{{ $subcategory->id }}" data-item-type="subcategory">Delete</a>
-                </td>
-              </tr>
-            @endforeach
-
-          </tbody>
-        </table>
-      </div>
+          @endforeach
+        </tbody>
+      </table>
     </div>
   </div>
+@endsection
+@section('scripts')
+  <script>
+    const table = new DataTable('#myTable');
+  </script>
 @endsection

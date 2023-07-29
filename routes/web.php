@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ChildCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +65,24 @@ Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function ()
     });
     //Sub Category Routes
     Route::controller(SubCategoryController::class)->prefix('subcategory')->name('subcategory.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+    });
+    // Child Category Routes
+    Route::controller(ChildCategoryController::class)->prefix('child-category')->name('childCategory.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::get('/delete/{id}', 'destroy')->name('delete');
+    });
+    // Brand Routes
+    Route::controller(BrandController::class)->prefix('brand')->name('brand.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
